@@ -26,8 +26,7 @@ RUN apk add --update --no-cache \
     ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family
 
 RUN curl -L https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz -o /tmp/wkhtmltopdf.tgz
-RUN tar -xf -C /tmp /tmp/wkhtmltopdf.tgz
-COPY /tmp/wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
+RUN tar -xC /tmp -f /tmp/wkhtmltopdf.tgz && mv /tmp/wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
 RUN chmod +x /usr/local/bin/wkhtmltopdf
 
 # cleanup
