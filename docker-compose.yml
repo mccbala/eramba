@@ -8,6 +8,8 @@ db:
     - MYSQL_ROOT_PASSWORD=erambarootpass
     - MYSQL_USER=erambadb
     - MYSQL_PASSWORD=erambapass
+  ports:
+    - "127.0.0.1:33060:3306"
   # If you are running on Windows or Mac the shared volume will cause 
   # an InnoDB error, uncomment the following lines:
   #
@@ -15,7 +17,7 @@ db:
   #  'mysqld --innodb-flush-method=fsync'
 app:
   # image: digitorus/eramba:enterprise 
-  image: digitorus/eramba
+  image: mccbala/eramba
   restart: always
   volumes:
     - ~/data/eramba/files:/app/app/webroot/files
