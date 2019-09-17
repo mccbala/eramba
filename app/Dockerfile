@@ -34,7 +34,7 @@ RUN rm -f /var/cache/apk/*
 #ENV DOWNLOAD_URL https://s3-eu-west-1.amazonaws.com/downloadseramba/.... (complete URL)
 
 # Community edition
-ENV DOWNLOAD_URL https://s3-eu-west-1.amazonaws.com/downloadseramba/CommunityTGZ/eramba_community_2018.tgz
+ENV DOWNLOAD_URL https://s3-eu-west-1.amazonaws.com/downloadseramba/CommunityTGZ/c241.tgz
 
 RUN curl $DOWNLOAD_URL -o /tmp/eramba.tgz
 RUN tar -xvz -C /tmp -f /tmp/eramba.tgz && mv /tmp/eramba_* /app && chown -R apache:apache /app && rm -f /tmp/eramba.tgz
