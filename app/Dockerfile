@@ -25,7 +25,9 @@ RUN apk add --update --no-cache \
     libcrypto1.0 libssl1.0 \
     ttf-dejavu ttf-droid ttf-freefont ttf-liberation ttf-ubuntu-font-family
 
-COPY https://github.com/madnight/docker-alpine-wkhtmltopdf/blob/master/wkhtmltopdf?raw=true /usr/local/bin/wkhtmltopdf
+RUN curl -L https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz | tar -xJ
+COPY wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
+RUN chmod +x /usr/local/bin/wkhtmltopdf
 
 # cleanup
 RUN rm -f /var/cache/apk/* 
